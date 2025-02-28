@@ -9,13 +9,13 @@ sections:
   - file: "Clase 01 - Introducci\xF3n al Machine Learning"
   - file: "Clase 02 - Regresi\xF3n lineal y regresi\xF3n log\xEDstica"
   - file: Clase 03 - Funciones discriminantes Gausianas
-  - file: Labs/lab1/lab1_parte1
-  - file: Labs/lab1/lab1_parte2
+  - file: lab1_parte1
+  - file: lab1_parte2
 - file: titles/U2_description
   sections:
   - file: "Clase 04 - Modelos no Param\xE9tricos"
-  - file: Labs/lab2/lab2_parte1
-  - file: Labs/lab2/lab2_parte2
+  - file: lab2_parte1
+  - file: lab2_parte2
 - file: titles/U3_description
   sections:
   - file: "Clase 05 - M\xE9tricas de error"
@@ -26,33 +26,33 @@ sections:
   sections:
   - file: Clase 08 - Modelos de Mezclas de Gausianas
   - file: Clase 09 - Unsupervised Learning
-  - file: Labs/lab3/lab3_parte1
+  - file: lab3_parte1
 - file: titles/U5_description
   sections:
   - file: "Clase 10 - \xC1rboles de Decisi\xF3n, Voting, Bagging, Random Forest"
   - file: Clase 11 - Boosting, Stacking
-  - file: Labs/lab3/lab3_parte2
+  - file: lab3_parte2
 - file: titles/U6_description
   sections:
   - file: Clase 12 - Redes Neuronales Artificiales
   - file: Clase 13 - Mapas Auto-Organizables
   - file: Clase 14 - Redes Neuronales Recurrentes
-  - file: Labs/lab4/lab4_parte1
-  - file: Labs/lab4/lab4_parte2
+  - file: lab4_parte1
+  - file: lab4_parte2
 - file: titles/U7_description
   sections:
   - file: "Clase 15 - M\xE1quinas de V\xE9ctores de Soporte"
   - file: Clase 16 - Estrategias Multiclase basadas en clasificadores binarios
-  - file: Labs/lab5/lab5_parte1
-  - file: Labs/lab5/lab5_parte2
+  - file: lab5_parte1
+  - file: lab5_parte2
 - file: titles/U8_description
   sections:
   - file: "Clase 17 - Selecci\xF3n de Caracter\xEDsticas"
   - file: "Clase 18 - Lasso y redes el\xE1sticas"
   - file: "Clase 19 - An\xE1lisis de Componentes Principales.ipynb"
   - file: "Clase 20 - An\xE1lisis Discriminante de Fisher.ipynb"
-  - file: Labs/lab6/lab6_parte1
-  - file: Labs/lab6/lab6_parte2
+  - file: lab6_parte1
+  - file: lab6_parte2
 - file: titles/U9_description
   sections:
   - file: Labs/Extra/Basic_Preprocessing_FeatureEngineering
