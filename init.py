@@ -1,6 +1,11 @@
-course_id = 'EACD-04-MACHINE-LEARNING-1'
-github_repo = 'UDEA-Esp-Analitica-y-Ciencia-de-Datos/%s'%course_id
-zip_file_url="https://github.com/%s/archive/master.zip"%github_repo
+# ------ COURSE PARAMS ------
+course_id = '\S*introml\S*'
+github_repo = 'jdariasl/Intro_ML_2025'
+endpoint = 'https://m5knaekxo6.execute-api.us-west-2.amazonaws.com/dev-v0001/rlxmooc'
+# ------ COURSE PARAMS ------
+
+zip_file_url ="https://github.com/%s/archive/main.zip"%github_repo
+#endpoint = 'http://localhost:5000/rlxmooc'
 
 def get_last_modif_date(localdir):
     try:
@@ -13,11 +18,19 @@ def get_last_modif_date(localdir):
     except Exception:
         return None
     
-import requests, zipfile, io, os, shutil
 def init(force_download=False):
+    from IPython.display import display, HTML
+    js = """
+<meta name="google-signin-client_id"
+      content="461673936472-kdjosv61up3ac1ajeuq6qqu72upilmls.apps.googleusercontent.com"/>
+<script src="https://apis.google.com/js/client:platform.js?onload=google_button_start"></script>
+    """
+
+    display(HTML(js))
+
     if force_download or not os.path.exists("local"):
         print("replicating local resources")
-        dirname = course_id+"-master/"
+        dirname = github_repo.split("/")[-1]+"-main/"
         if os.path.exists(dirname):
             shutil.rmtree(dirname)
         r = requests.get(zip_file_url)
@@ -25,6 +38,33 @@ def init(force_download=False):
         z.extractall()
         if os.path.exists("local"):
             shutil.rmtree("local")
-        shutil.move(dirname+"/local", "local")
+        if os.path.exists(dirname+"/content/local"):
+            shutil.move(dirname+"/content/local", "local")
+        elif os.path.exists(dirname+"/local"):
+            shutil.move(dirname+"/local", "local")
         shutil.rmtree(dirname)
+
+def get_weblink():
+    from IPython.display import HTML
+    return HTML("<h3>See <a href='"+endpoint+"/web/login' target='_blank'>my courses and progress</a></h2>")
+
+def install_sourcedefender():
+    print('enabling encryption...')
+    output = subprocess.run(['pip', 'install', 'sourcedefender==7.0.0'], stderr=subprocess.PIPE)
+
+    if output.returncode != 0:
+        STDOUT_RED_COLOR = '\033[91m'
+        STDOUT_RESET_COLOR = '\033[0m'
+        print('Sourcedefender installation failed, returning')
+        print(STDOUT_RED_COLOR + output.stderr.decode('ASCII') + STDOUT_RESET_COLOR)
+    else:
+        print('encryption enabled')
+
+
+import requests, zipfile, io, os, shutil, subprocess
+#try:
+#    import sourcedefender
+#except ModuleNotFoundError:
+#    install_sourcedefender()
+#    import sourcedefender
 

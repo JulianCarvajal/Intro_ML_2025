@@ -168,7 +168,8 @@ def part_1():
     GRADER_LAB_1_P1.add_test("ejercicio5", Tester(test_ejercicio_5))
     GRADER_LAB_1_P1.add_test("ejercicio6", Tester(test_exp1))
     GRADER_LAB_1_P1.add_test("ejercicio7", Tester(test_exp2))
-    db = np.loadtxt('AirQuality.data',delimiter='\t') 
+    data_path = os.path.join(os.getcwd(),'Labs','commons','utils','data', 'AirQuality.data')
+    db = np.loadtxt(data_path,delimiter='\t') 
     x = db[:,0:12]
     y = db[:,12]
     return (GRADER_LAB_1_P1, db, x, y)
