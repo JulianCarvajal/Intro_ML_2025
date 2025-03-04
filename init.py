@@ -1,5 +1,5 @@
 # ------ COURSE PARAMS ------
-course_id = '\S*introml\S*'
+course_id = r'\S*introml\S*'
 github_repo = 'jdariasl/Intro_ML_2025'
 endpoint = 'https://m5knaekxo6.execute-api.us-west-2.amazonaws.com/dev-v0001/rlxmooc'
 # ------ COURSE PARAMS ------
