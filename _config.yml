@@ -2,7 +2,7 @@
 # template from https://github.com/executablebooks/github-action-demo
 title: 2025 Introducción al Machine Learning
 author: <b>Julián Arias</b>/ Universidad de Antioquia -- Labs por Germán E. Melo - Deiry Sofía Navas
-logo: Images/fudea.jpg
+logo: Local/imgs/fudea.jpg
 
 repository:
    url: https://github.com/jdariasl/Intro_ML_2025
