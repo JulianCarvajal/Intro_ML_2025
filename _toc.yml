@@ -41,7 +41,7 @@ sections:
   - file: lab4_parte2
 - file: titles/U7_description
   sections:
-  - file: "Clase 15 - M\xE1quinas de V\xE9ctores de Soporte"
+  - file: "Clase 15 - M\xE1quinas de Vectores de Soporte"
   - file: Clase 16 - Estrategias Multiclase basadas en clasificadores binarios
   - file: lab5_parte1
   - file: lab5_parte2
