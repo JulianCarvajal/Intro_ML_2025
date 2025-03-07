@@ -10,7 +10,7 @@ Este archivo es generado automaticamente.
 
 ###### NO MODIFICAR #########
 """
-from imports import *
+from .imports import *
 
 def potenciaPolinomio(X,grado):
     """calcula la potencia del polinomio
