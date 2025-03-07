@@ -36,6 +36,8 @@ def init(force_download=False):
         r = requests.get(zip_file_url)
         z = zipfile.ZipFile(io.BytesIO(r.content))
         z.extractall()
+        if os.path.exists("Labs"):
+            shutil.rmtree("Labs")
         if os.path.exists("local"):
             shutil.rmtree("local")
         if os.path.exists(dirname+"/content/local"):
