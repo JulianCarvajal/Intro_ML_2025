@@ -45,7 +45,7 @@ def init(force_download=False):
         shutil.rmtree(dirname)
         
     if force_download or not os.path.exists("Labs"):
-        print("replicating local resources")
+        print("replicating Labs resources")
         dirname = github_repo.split("/")[-1]+"-main/"
         if os.path.exists(dirname):
             shutil.rmtree(dirname)
