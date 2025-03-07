@@ -36,14 +36,28 @@ def init(force_download=False):
         r = requests.get(zip_file_url)
         z = zipfile.ZipFile(io.BytesIO(r.content))
         z.extractall()
-        if os.path.exists("Labs"):
-            shutil.rmtree("Labs")
         if os.path.exists("local"):
             shutil.rmtree("local")
         if os.path.exists(dirname+"/content/local"):
             shutil.move(dirname+"/content/local", "local")
         elif os.path.exists(dirname+"/local"):
             shutil.move(dirname+"/local", "local")
+        shutil.rmtree(dirname)
+        
+    if force_download or not os.path.exists("Labs"):
+        print("replicating local resources")
+        dirname = github_repo.split("/")[-1]+"-main/"
+        if os.path.exists(dirname):
+            shutil.rmtree(dirname)
+        r = requests.get(zip_file_url)
+        z = zipfile.ZipFile(io.BytesIO(r.content))
+        z.extractall()
+        if os.path.exists("Labs"):
+            shutil.rmtree("Labs")
+        if os.path.exists(dirname+"/content/Labs"):
+            shutil.move(dirname+"/content/Labs", "Labs")
+        elif os.path.exists(dirname+"/Labs"):
+            shutil.move(dirname+"/Labs", "Labs")
         shutil.rmtree(dirname)
 
 def get_weblink():
