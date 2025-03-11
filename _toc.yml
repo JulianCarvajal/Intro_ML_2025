@@ -3,7 +3,7 @@ root: intro
 sections:
 - file: titles/U0_IntroLabs
   sections:
-  - file: Labs/Intro/Intro
+  - file: Intro_python
 - file: titles/U1_description
   sections:
   - file: "Clase 01 - Introducci\xF3n al Machine Learning"
