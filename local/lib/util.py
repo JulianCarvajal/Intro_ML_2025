@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
 import pandas as pd
+from collections import Counter
 
 def sigmoide(u):
         g = np.exp(u)/(1 + np.exp(u))
@@ -70,4 +71,22 @@ def plot_model_reg(t, prediction):
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
     plt.xlabel('$x$')
-    plt.ylabel('$t$')
+    plt.ylabel('$y$')
+    
+def plot_samples_per_class(y):
+    class_counts = Counter(y)
+    classes = list(class_counts.keys())
+    counts = list(class_counts.values())
+    
+    plt.figure(figsize=(8, 5))
+    plt.bar(classes, counts, color='skyblue', edgecolor='black')
+    plt.xlabel('Class Labels')
+    plt.ylabel('Number of Samples')
+    plt.title('Number of Samples per Class')
+    plt.xticks(rotation=45)
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    for i, count in enumerate(counts):
+        plt.text(i, count + 0.5, str(count), ha='center', fontsize=10)
+    
+    plt.show()
