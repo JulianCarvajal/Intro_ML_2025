@@ -9,7 +9,7 @@ Este archivo es generado automaticamente.
 # calificacion del laboratorio!!!!!
 
 """
-from imports import *
+from .imports import *
 from scipy.stats import mode
 from sklearn.model_selection import train_test_split, StratifiedKFold, KFold
 from numpy import random
