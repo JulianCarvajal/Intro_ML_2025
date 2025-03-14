@@ -15,7 +15,7 @@ from matplotlib import cm
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsRegressor
 
-df = pd.read_csv("DataFiles/housing.data",delim_whitespace=True, header=None, names=['CRIM','ZN','INDUS','CHAS','NOX','RM','AGE','DIS','RAD','TAX','PTRATIO','B','LSTAT','MEDV'])
+df = pd.read_csv("local/data/housing.data",delim_whitespace=True, header=None, names=['CRIM','ZN','INDUS','CHAS','NOX','RM','AGE','DIS','RAD','TAX','PTRATIO','B','LSTAT','MEDV'])
 
 samples, columns = df.shape
 features = columns -1
@@ -25,12 +25,12 @@ output = df.iloc[:, -1:]
 def plot_hpi():
     
     
-    zdata = output[0:100].values
+    zdata = output[0:100].values.flatten()
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values
     fig = plt.figure(figsize=(10,10))
     ax = plt.axes(projection='3d')
-    ax.scatter3D(xdata, ydata, zdata, cmap='Greens');
+    ax.scatter3D(xdata, ydata, zdata);
     ax.set_xlabel("Edad")
     ax.set_ylabel("Tasa de impuesto")
     ax.set_zlabel("HPI x10^3")
@@ -106,7 +106,7 @@ def Gradient(X,y):
     return w
 
 def Poli1():
-    zdata = output[0:100].values
+    zdata = output[0:100].values.flatten()
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
     X = np.c_[xdata.reshape(100,1),ydata.reshape(100,1)]
@@ -114,7 +114,8 @@ def Poli1():
     Xn = scaler.fit_transform(X)
     w=Gradient(Xn,zdata.reshape(100,1))
     fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
+    #ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection = '3d')
     x1 = np.linspace(np.min(xdata), np.max(xdata), num=20)
     x2 = np.linspace(np.min(ydata), np.max(ydata), num=20)
 
@@ -122,8 +123,9 @@ def Poli1():
     Z = w[0]*(x1-scaler.mean_[0])/np.sqrt(scaler.var_[0]) + w[1]*(x2-scaler.mean_[1])/np.sqrt(scaler.var_[1]) + w[2]
 
     # Plot the surface.
-    surf = ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,linewidth=0, antialiased=False)
-    ax.scatter3D(xdata, ydata, zdata, cmap='Greens');
+    
+    ax.scatter3D(xdata, ydata, zdata);
+    ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,linewidth=0, antialiased=False, alpha=0.5)
     ax.set_title("Función de regresión polinomial grado 1")
     ax.set_xlabel("Edad")
     ax.set_ylabel("Tasa de impuesto")
@@ -132,7 +134,7 @@ def Poli1():
     return ax
     
 def Poli2():
-    zdata = output[0:100].values
+    zdata = output[0:100].values.flatten()
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
     X = np.c_[xdata.reshape(100,1),ydata.reshape(100,1)]
@@ -141,7 +143,8 @@ def Poli2():
     Xn = scaler.fit_transform(X)
     w=Gradient(Xn,zdata.reshape(100,1))
     fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
+    #ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection = '3d')
     x1 = np.linspace(np.min(xdata), np.max(xdata), num=20)
     x2 = np.linspace(np.min(ydata), np.max(ydata), num=20)
 
@@ -151,8 +154,8 @@ def Poli2():
     Z = w[0]*(x1-scaler.mean_[0])/np.sqrt(scaler.var_[0]) + w[1]*(x2-scaler.mean_[1])/np.sqrt(scaler.var_[1]) + w[2]*(x3-scaler.mean_[2])/np.sqrt(scaler.var_[2]) + w[3]*(x4-scaler.mean_[3])/np.sqrt(scaler.var_[3]) + w[4]
 
     # Plot the surface.
-    surf = ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,linewidth=0, antialiased=False)
-    ax.scatter3D(xdata, ydata, zdata, cmap='Greens');
+    ax.scatter3D(xdata, ydata, zdata);
+    ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,linewidth=0, antialiased=False, alpha=0.5)
     ax.set_title("Función de regresión polinomial grado 2")
     ax.set_xlabel("Edad")
     ax.set_ylabel("Tasa de impuesto")
@@ -194,27 +197,28 @@ def HistogramReg(X,Y,x1,x2):
 
 
 def HisPlot():
-    zdata = output[0:100].values
+    zdata = output[0:100].values.flatten()
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
     X = np.c_[xdata.reshape(100,1),ydata.reshape(100,1)]
     fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
+    #ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection = '3d')
     x1 = np.linspace(np.min(xdata), np.max(xdata), num=20)
     x2 = np.linspace(np.min(ydata), np.max(ydata), num=20)
 
     Z = HistogramReg(X,zdata.reshape(100,1),x1,x2)
     x1, x2 = np.meshgrid(x1, x2)
     # Plot the surface.
-    surf = ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,linewidth=0, antialiased=False)
-    ax.scatter3D(xdata, ydata, zdata, cmap='Greens');
+    ax.scatter3D(xdata, ydata, zdata)
+    ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,linewidth=0, antialiased=False, alpha=0.5)
     ax.set_title("Histogram Regression function")
     ax.set_xlabel("Edad")
     ax.set_ylabel("Tasa de impuesto")
     ax.set_zlabel("HPI x10^3")
     
 def knn_un(n_neighbors=2):
-    zdata = output[0:100].values
+    zdata = output[0:100].values.flatten()
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
     X = np.c_[xdata.reshape(100,1),ydata.reshape(100,1)]
@@ -229,11 +233,12 @@ def knn_un(n_neighbors=2):
         for j in range(n2):
             Z[i,j] = neigh.predict(np.array([x1[i,j],x2[i,j]]).reshape(1,2))
     fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
+    #ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection = '3d')
     # Plot the surface.
     surf = ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,
-                       linewidth=0, antialiased=False)
-    ax.scatter3D(xdata, ydata, zdata, cmap='Greens');
+                       linewidth=0, antialiased=False, alpha=0.5)
+    ax.scatter3D(xdata, ydata, zdata);
     ax.set_title('K-NN Regression function, k = {}'.format(n_neighbors))
     ax.set_xlabel("Edad")
     ax.set_ylabel("Tasa de impuesto")
@@ -242,7 +247,7 @@ def knn_un(n_neighbors=2):
     return ax
    
 def knn_n(n_neighbors=2):
-    zdata = output[0:100].values
+    zdata = output[0:100].values.flatten()
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
     X = np.c_[xdata.reshape(100,1),ydata.reshape(100,1)]
@@ -261,11 +266,13 @@ def knn_n(n_neighbors=2):
             xvaln = scaler.transform(xval)
             Z[i,j] = neigh.predict(xvaln)
     fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
+    #ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection = '3d')
     # Plot the surface.
-    surf = ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,
-                       linewidth=0, antialiased=False)
-    ax.scatter3D(xdata, ydata, zdata, cmap='Greens');
+    
+    ax.scatter3D(xdata, ydata, zdata)
+    ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm,
+                       linewidth=0, antialiased=False, alpha=0.5)
     ax.set_title('K-NN Regression function, k = {}'.format(n_neighbors))
     ax.set_xlabel("Edad")
     ax.set_ylabel("Tasa de impuesto")
@@ -274,7 +281,7 @@ def knn_n(n_neighbors=2):
     return ax
 
 def ParzenPlot_un(h):
-    zdata = output[0:100].values
+    zdata = output[0:100].values.flatten()
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
     X = np.c_[xdata.reshape(100,1),ydata.reshape(100,1)]
@@ -288,10 +295,11 @@ def ParzenPlot_un(h):
             xval = np.array([x1[i,j],x2[i,j]]).reshape(1,2)
             Z[i,j] = nadaraya_watson(X,xval,zdata.reshape(100,1),h)
     fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
+    #ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection = '3d')
     # Plot the surface.
-    surf = ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False)
-    ax.scatter3D(xdata, ydata, zdata, cmap='Greens');
+    ax.scatter3D(xdata, ydata, zdata)
+    ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False, alpha=0.5)
     ax.set_title('Parzen Window Regression function, h = {}'.format(h))
     ax.set_xlabel("Edad")
     ax.set_ylabel("Tasa de impuesto")
@@ -299,7 +307,7 @@ def ParzenPlot_un(h):
     return ax
 
 def ParzenPlot_n(h):
-    zdata = output[0:100].values
+    zdata = output[0:100].values.flatten()
     xdata = data['AGE'].iloc[0:100,].values
     ydata = data['TAX'].iloc[0:100,].values*1000000
     X = np.c_[xdata.reshape(100,1),ydata.reshape(100,1)]
@@ -316,10 +324,11 @@ def ParzenPlot_n(h):
             xvaln = scaler.transform(xval)
             Z[i,j] = nadaraya_watson(Xn,xvaln,zdata.reshape(100,1),h)
     fig = plt.figure(figsize=(10,10))
-    ax = fig.gca(projection='3d')
+    #ax = fig.gca(projection='3d')
+    ax = fig.add_subplot(projection = '3d')
     # Plot the surface.
-    surf = ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False)
-    ax.scatter3D(xdata, ydata, zdata, cmap='Greens');
+    ax.scatter3D(xdata, ydata, zdata)
+    ax.plot_surface(x1, x2, Z, cmap=cm.coolwarm, linewidth=0, antialiased=False, alpha=0.5)
     ax.set_title('Parzen Window Regression function, h = {}'.format(h))
     ax.set_xlabel("Edad")
     ax.set_ylabel("Tasa de impuesto")

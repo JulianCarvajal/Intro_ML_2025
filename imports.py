@@ -13,10 +13,9 @@ Este archivo es generado automaticamente.
 
 
 import numpy as np
-import os
 import matplotlib.pyplot as plt
 import pandas as pd
-from Labs.commons.utils.general import Tester, Grader, Utils, unknow_error
+from general import Tester, Grader, Utils, unknow_error
 from scipy import stats
 import random
 import math
@@ -25,4 +24,4 @@ import functools
 import scipy.io
 import inspect
 import time
-#ut = Utils()
+ut = Utils()

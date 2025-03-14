@@ -10,10 +10,10 @@ Este archivo es generado automaticamente.
 
 ###### NO MODIFICAR #########
 """
-from imports import *
+from .imports import *
 from sklearn.datasets import load_digits
 from sklearn.decomposition import PCA
-import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.model_selection import KFold, ShuffleSplit, StratifiedKFold
 from sklearn.mixture import GaussianMixture
 from sklearn.cluster import KMeans
