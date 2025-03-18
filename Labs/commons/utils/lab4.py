@@ -11,7 +11,7 @@ Este archivo es generado automaticamente.
 ###### NO MODIFICAR #########
 """
 
-from imports import *
+from .imports import *
 from sklearn.neural_network import MLPRegressor
 from sklearn.model_selection import ShuffleSplit
 from sklearn.metrics import mean_absolute_error, accuracy_score, mean_absolute_percentage_error,classification_report
