@@ -247,8 +247,13 @@ def test_knn_reg_exp_parzen(func):
 
 def part_2 ():
 #cargamos la bd iris desde el dataset de sklearn
-    from sklearn.datasets import load_boston
-    x, y = load_boston(return_X_y=True)
+    #from sklearn.datasets import load_boston
+    #x, y = load_boston(return_X_y=True)
+
+    from sklearn.datasets import fetch_california_housing
+    data = fetch_california_housing()
+    x, y = data.data, data.target
+
     GRADER = Grader("lab2_part2")
     GRADER.add_test("ejercicio1", Tester(test_plot_hist_20))
     GRADER.add_test("ejercicio2", Tester(test_KNN_regresion))
