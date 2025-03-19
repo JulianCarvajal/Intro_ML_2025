@@ -20,7 +20,7 @@ def plot_ellipse(ax, mu ,sigma, color='k'):
     w,h = 4* np.sqrt(vals)
     
     ax.tick_params(axis='both',which='major',labelsize=20)
-    ellipse = Ellipse(mu,w,h,theta,color=color)
+    ellipse = Ellipse(mu,w,h,angle=theta,color=color)
     ellipse.set_alpha(0.2)
     ax.add_artist(ellipse)
 
