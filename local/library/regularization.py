@@ -68,6 +68,8 @@ def plotDecisionBoundary(w, X, Y):
         
         xv, yv = np.meshgrid(u, v)
         plt.contour(xv, yv, z.T, 0)
+    plt.show()
+    return
 
 def StandardLogisticRegression(X,Y,lam=0):
     #Aprendizaje
@@ -89,6 +91,7 @@ def StandardLogisticRegression(X,Y,lam=0):
     plt.title("Error de entrenamiento")
     plt.xlabel("Iteraciones")
     plotDecisionBoundary(w, Xent, Y)
+    return 
 
 def PrintOverfittingReg():
     print(__doc__)
