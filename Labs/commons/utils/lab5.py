@@ -48,7 +48,7 @@ def part_1 ():
 
 def part_2 ():
     GRADER = Grader("lab5_part2", num_questions = 4)
-    db = np.loadtxt('AirQuality.data',delimiter='\t')  # Assuming tab-delimiter
+    db = np.loadtxt('Labs/commons/utils/data/AirQuality.data',delimiter='\t')  # Assuming tab-delimiter
     db = db.reshape(9357,13)
     db = db[0:2000, :]
     print("Dim de la base de datos original: " + str(np.shape(db)))
