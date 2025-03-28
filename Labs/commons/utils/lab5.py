@@ -38,7 +38,7 @@ def part_1 ():
     GRADER = Grader("lab5_part1", num_questions = 4)
     dataset = pd.read_csv('Labs/commons/utils/data/international-airline-passengers.csv', usecols=[1], engine='python', skipfooter=3)
     dataset.columns =[ 'passengers']
-    os.system("pip install torchviz")
+    os.system("pip install torchview")
     os.system("pip install statsmodels==0.12")
 
 
