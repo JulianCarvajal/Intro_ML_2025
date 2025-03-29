@@ -33,7 +33,7 @@ def generate_data(is_class = False, cols = 2):
 
 def part_1 ():
     GRADER = Grader("lab6_part1", num_questions = 4)
-    db = np.loadtxt('DB_Fetal_Cardiotocograms.txt',delimiter='\t')  # Assuming tab
+    db = np.loadtxt('Labs/commons/utils/data/DB_Fetal_Cardiotocograms.txt',delimiter='\t')  # Assuming tab
     X = db[:,0:22]
     #Solo para dar formato a algunas variables
     for i in range(1,7):
@@ -48,7 +48,7 @@ def part_1 ():
 
 def part_2 ():
     GRADER = Grader("lab6_part2", num_questions = 4)
-    db = np.loadtxt('DB_Fetal_Cardiotocograms.txt',delimiter='\t')  # Assuming tab
+    db = np.loadtxt('Labs/commons/utils/data/DB_Fetal_Cardiotocograms.txt',delimiter='\t')  # Assuming tab
     X = db[:,0:22]
     #Solo para dar formato a algunas variables
     for i in range(1,7):
