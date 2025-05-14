@@ -33,7 +33,6 @@ def plot_estimator(estimator, X, y):
     return plt
 
 def DecisionBoundaryPlot():
-
 	#-------------------- Generacion de Datos Artificiales --------------------------
 	x1 = np.random.rand(50,2)
 	x2 = np.random.rand(50,2) + 2
@@ -49,9 +48,9 @@ def DecisionBoundaryPlot():
 	#------------------ Minimizacion --------------------------------------------------
 	for i in range(MaxIter):
 		tem = 1/(1 + np.exp(-1*np.dot(X,w)))
-    	tem2 = tem-np.array(Y)
-    	tem = np.dot(X.T,tem2)
-    	w = w - eta*(1/N)*tem
+		tem2 = tem-np.array(Y)
+		tem = np.dot(X.T,tem2)
+		w = w - eta*(1/N)*tem
 	#-------------- Grafica de la Frontera --------------------------------------------
 	x = np.linspace(-1,5,100).reshape(100, 1)
 	print(w)
