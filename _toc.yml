@@ -57,5 +57,7 @@ sections:
 - file: titles/U9_description
   sections:
   - file: Clase 22 - Aprendizaje semi-supervisado.ipynb
+- file: titles/U10_description
+  sections:
   - file: Labs/Extra/Basic_Preprocessing_FeatureEngineering
   - file: Labs/Extra/DespliegueModelos
