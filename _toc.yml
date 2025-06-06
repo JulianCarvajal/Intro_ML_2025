@@ -25,7 +25,7 @@ sections:
 - file: titles/U4_description
   sections:
   - file: Clase 08 - Modelos de Mezclas de Gausianas
-  - file: Clase 09 - Unsupervised Learning
+  - file: Clase 09 - Aprendizaje no supervisado
   - file: lab3_parte1
 - file: titles/U5_description
   sections:
@@ -51,6 +51,7 @@ sections:
   - file: "Clase 18 - Lasso y redes el\xE1sticas"
   - file: "Clase 19 - An\xE1lisis de Componentes Principales.ipynb"
   - file: "Clase 20 - An\xE1lisis Discriminante de Fisher.ipynb"
+  - file: "Clase 21 - Extracci\xF3n no lineal de caracter\xEDsticas - aprendizaje de variedades"
   - file: lab6_parte1
   - file: lab6_parte2
 - file: titles/U9_description
