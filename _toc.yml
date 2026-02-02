@@ -31,33 +31,35 @@ sections:
   sections:
   - file: "Clase 10 - \xC1rboles de Decisi\xF3n, Voting, Bagging, Random Forest"
   - file: Clase 11 - Boosting, Stacking
+  - file: Clase 12 - Isolation Forest
   - file: lab3_parte2
 - file: titles/U6_description
   sections:
-  - file: Clase 12 - Redes Neuronales Artificiales
-  - file: Clase 13 - Mapas Auto-Organizables
-  - file: Clase 14 - Redes Neuronales Recurrentes
+  - file: Clase 13 - Redes Neuronales Artificiales
+  - file: Clase 14 - Mapas Auto-Organizables
+  - file: Clase 15 - Redes Neuronales Recurrentes
   - file: lab4_parte1
   - file: lab4_parte2
 - file: titles/U7_description
   sections:
-  - file: "Clase 15 - M\xE1quinas de Vectores de Soporte"
-  - file: Clase 16 - Estrategias Multiclase basadas en clasificadores binarios
+  - file: "Clase 16 - M\xE1quinas de Vectores de Soporte"
+  - file: Clase 17 - Estrategias Multiclase basadas en clasificadores binarios
   - file: lab5_parte1
   - file: lab5_parte2
 - file: titles/U8_description
   sections:
-  - file: "Clase 17 - Selecci\xF3n de Caracter\xEDsticas"
-  - file: "Clase 18 - Lasso y redes el\xE1sticas"
-  - file: "Clase 19 - An\xE1lisis de Componentes Principales.ipynb"
-  - file: "Clase 20 - An\xE1lisis Discriminante de Fisher.ipynb"
-  - file: "Clase 21 - Extracci\xF3n no lineal de caracter\xEDsticas - aprendizaje de variedades"
+  - file: "Clase 18 - Selecci\xF3n de Caracter\xEDsticas"
+  - file: "Clase 19 - Lasso y redes el\xE1sticas"
+  - file: "Clase 20 - An\xE1lisis de Componentes Principales.ipynb"
+  - file: "Clase 21 - An\xE1lisis Discriminante de Fisher.ipynb"
+  - file: "Clase 22 - Extracci\xF3n no lineal de caracter\xEDsticas - aprendizaje de variedades"
+  - file: Clase 23 - Explicabilidad de modelos
   - file: lab6_parte1
   - file: lab6_parte2
 - file: titles/U9_description
   sections:
-  - file: Clase 22 - Aprendizaje semi-supervisado.ipynb
-  - file: Clase 23 - Aprendizaje por refuerzo.ipynb
+  - file: Clase 24 - Aprendizaje semi-supervisado.ipynb
+  - file: Clase 25 - Aprendizaje por refuerzo.ipynb
 - file: titles/U10_description
   sections:
   - file: Labs/Extra/Basic_Preprocessing_FeatureEngineering
